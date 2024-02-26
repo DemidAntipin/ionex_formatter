@@ -17,6 +17,12 @@ class TestDatetimeFormatting:
                              epoch=datetime(2010, 12, 28)
         ) 
         ionex_map.set_data(cells)
+        ionex_map2= IonexMap(lat_range=SpatialRange(87.5, -87.5, -87.5),
+                             lon_range=SpatialRange(180, -180, -5),
+                             height=450,
+                             epoch=datetime(2010, 12, 28)
+        )
+        ionex_map2.set_data(cells)
         assert ionex_map.get_cell(87.5, -165) == 49
         assert ionex_map.get_cell(0, 0) == 52
         assert ionex_map.get_cell(-87.5, 160) == 127

@@ -8,6 +8,10 @@ class TestSpatialGridDimensions():
     
     def test_zero_step(self):
         rng = SpatialRange(450.0, 450.0, 0.0)
+        with pytest.raises(DecimalDigitReduceAccuracyError):
+            rng2=SpatialRange(450.0, 450.51, 0.0)
+        with pytest.raises(DecimalDigitReduceAccuracyError):
+            rng3=SpatialRange(450.51, 450.0, 0.0)
         assert rng.vmin == 450.0
         assert rng.vmax == 450.0
         assert rng.vstep == 0.0

@@ -357,7 +357,7 @@ class IonexFile:
         for token in tokens:
             if "X" in token:
                 unwrapped_tokens.append(token)
-            elif token[0] in ("F", "I", "A"):
+            elif token[0] in ("F", "I", "A", "Y"):
                 unwrapped_tokens.append(token)
             elif token[1] in ("F", "I", "A") or token[2] in ("F", "I", "A"):
                 if token[1] in ("F", "I", "A"):

@@ -14,7 +14,14 @@ class TestSpatialGridDimensions():
         return ionex_file_formatter
     
     def test_lat_grid(self, file_formatter):
-        lat_lines = file_formatter.header["LAT1 / LAT2 / DLAT"] 
+        lat_lines = file_formatter.header["LAT1 / LAT2 / DLAT"]
+        ionex_file_formatter = formatter.IonexFile()
+        lat_grid = SpatialRange(87.5, -87.5, -2.5)
+        lon_grid = SpatialRange(-180, 180, 5)
+        height_grid = SpatialRange(450, 450, 0)
+        ionex_file_formatter.header=["LAT1 / LAT2 / DLAT", "LON1 / LON2 / DLON", "HGT1 / HGT2 / DHGT"]
+        with pytest.raises(formatter.HeaderDuplicatedLine):
+            ionex_file_formatter.set_spatial_grid(lat_grid, lon_grid, height_grid)
         assert len(lat_lines) == 1
         assert lat_lines[0] == "    87.5 -87.5  -2.5                    " \
                                "                    LAT1 / LAT2 / DLAT  "
@@ -30,3 +37,4 @@ class TestSpatialGridDimensions():
         assert len(heigth_lines) == 1
         assert heigth_lines[0] == "   450.0 450.0   0.0                    " \
                                   "                    HGT1 / HGT2 / DHGT  "
+ 

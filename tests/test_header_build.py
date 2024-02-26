@@ -17,6 +17,7 @@ comment = [
     "TEC values in  0.1 TECUs; 9999 if no value available        ",
     "IGS GPS stations used in the computations:                  "
 ]
+comment2 = "TEC values in  0.1 TECUs; 9999 if no value available        "
 
 sites = [
     "019b", "ab02", "ab06", "ab09", "ab11", "ab12", "ab13", "ab25", "ab27", "ab33",
@@ -75,8 +76,10 @@ class TestIonexHeaderBuild():
 
     def test_comment(self):
         formatter = IonexFile()
+        formatter2= IonexFile()
         formatter.add_comment(comment)
         formatter.add_comment(comment)
+        formatter2.add_comment(comment2)
         expected  = [
             "TEC values in  0.1 TECUs; 9999 if no val"  
             "ue available        COMMENT             ", 
