@@ -5,7 +5,7 @@ IONEX formatter
 ------
 
 ``
-coverage html
+coverage run -m pytest & coverage html​
 ``
 
 Ожидаемый результат
