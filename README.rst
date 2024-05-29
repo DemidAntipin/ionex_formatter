@@ -1,6 +1,20 @@
 IONEX formatter
 ===============
 
+Запуск
+------
+
+```bash
+coverage html
+```
+
+Ожидаемый результат
+-------------------
+
+html страница, где указано 100% покрытие строчек кода
+
+
+
 Data format to exchange ionospheric maps like on the Figure below:
 
 .. image:: docs/img/global_regular.png
